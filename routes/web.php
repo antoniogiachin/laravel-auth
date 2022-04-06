@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +14,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// }); ->rimuovo
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home'); -> rimuovo
+
+//queste rotte accessibili solo a chi passa autenticazione
+Route::middleware("auth")
+//i loro controller si trovano nel namespace seguente
+->namespace('Admin')
+// il NOME delle rotte comincia per admin.
+->name('admin.')
+// l'uri delle rotte comincia per /admin/
+->prefix('admin')
+//tutte le rotte di questo tipo vengono quindi raggruppate
+->group(function(){
+    // ad esempio qui di seguito la rotta / sarebbe uguale a /admin/. Questa risponde al controller index di HomeController
+    Route::get('/', 'HomeController@index')->name('home');
+});
