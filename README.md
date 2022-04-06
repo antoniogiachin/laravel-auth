@@ -34,6 +34,12 @@ Mi serve impostare delle rotte: in particolare voglio che tutto ciò che non è 
 - Creiamo table posts  *php artisan make:migration create_posts_table*
 - Creiamo controller Crud per i post *php artisan make:controller --resource Admin/PostController* sotto la cartella Admin
 - Creo model per i Post *php artisan make:model Post*
-- Definisco la tabella nella migration, nei campi con **slug** intendo una stringa che va ad identificare il post nell'url relativo: ad esempio miosito.it/slug
-- PostController -> funzione index() mi ritorna una home dei post -> nuova cartella post in admin con le varie viste dei post
-- Funzione index() -> preleva tutti i pos
+- Definisco la tabella nella migration, nei campi con **slug** intendo una stringa che va ad identificare il post nell'url relativo: ad esempio miosito.it/slug, lo slug è unique
+- Faccio migration
+- Imposto nel model di Post i campi fillable
+- TODO
+
+## Gestione rotte PostController
+- Route::resource nel file web.php, essendo rotte accessibili solo se admin finiscono all'interno del gruppo di admin
+- PostController -> funzione index() mi ritorna index dei post -> nuova cartella post in admin con le varie viste dei post
+- Funzione index() PostController -> preleva tutti i post dal DB e li invia compact alla index dei post

@@ -34,6 +34,9 @@ Route::middleware('auth')
 ->group(function(){
     // ad esempio qui di seguito la rotta / sarebbe uguale a /admin/. Questa risponde al controller index di HomeController
     Route::get('/', 'HomeController@index')->name('home');
+
+    //rotte post
+    Route::resource('posts', 'PostController');
 });
 
 // rotta di fallback su guest.home, accetto any dove per any intendo qualsiasi rotta ".*"
