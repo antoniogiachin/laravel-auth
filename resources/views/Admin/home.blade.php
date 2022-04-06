@@ -13,8 +13,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    {{ __('You are logged in!') }}
+                    
+                    {{-- Loggato restituisci --}}
+                    Ciao {{ $user->name }} 
                 </div>
             </div>
         </div>

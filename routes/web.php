@@ -23,7 +23,7 @@ Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home'); -> rimuovo
 
 //queste rotte accessibili solo a chi passa autenticazione
-Route::middleware("auth")
+Route::middleware('auth')
 //i loro controller si trovano nel namespace seguente
 ->namespace('Admin')
 // il NOME delle rotte comincia per admin.
@@ -35,3 +35,8 @@ Route::middleware("auth")
     // ad esempio qui di seguito la rotta / sarebbe uguale a /admin/. Questa risponde al controller index di HomeController
     Route::get('/', 'HomeController@index')->name('home');
 });
+
+// rotta di fallback su guest.home, accetto any dove per any intendo qualsiasi rotta ".*"
+Route::get('{any?}', function(){
+    return view('guest.home');
+})->where('any', '.*');

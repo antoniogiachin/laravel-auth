@@ -17,3 +17,15 @@
 - Prelevo i dati inseriti dall'utente e li passo alla vista admin.home (che creo in view sotto la cartella Admin), attraverso il model Auth -> Auth::user(), essendo un *facades* va inserito sul controller *use Illuminate\Support\Facades\Auth;*
 - Creo la view home.blade.php sotto la cartella Admin, assieme ad una ulteriore sottocartella admin/layouts con il layout di base (che copio da quello già presente)
 - Allo stesso modo copio home da quello già presente fuori Admin
+
+## DB Side
+- Per quanto riguarda User -> pensa a tutto Laravel, mi basta lanciare la migration
+
+## Gestisco scaffoldiing Front-End di Vue
+Mi serve impostare delle rotte: in particolare voglio che tutto ciò che non è intercettqto dalle precedenti (quelle relative all'admin o altro) mi rimandi ad una rotta guest.home
+- Imposto la rotta generica per guest.home -> vedi web.php
+- Sottocartella view guest-> qui finisce tutto ciò che è gestito front-end, cominciando da home.blade.php
+- Creo il component App.vue che contiene tutto il vue di cui il sito ha bisogno -> dentro resources/js/components
+- Faccio la import della App.vue in un file JS dedicato al front nello specifico -> dentro resources/js -> guarda il file per vedere come istanziare
+- Cancello tutto il contenuto (eccetto bootstrap) del file app.js base (lo uso solo per il backend), e nel webpack.mix.js inserisco anche il front.js
+- Nella home di Guest metto lo script per il front.js e il tag div #root, poi rilancio npm run watch/serve
