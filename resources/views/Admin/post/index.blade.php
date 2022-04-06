@@ -1,8 +1,10 @@
 @extends('admin.layouts.base')
 
 @section('content')
-    <div class="container py-5">
-        <h1 class="text-center">Tabella dei post </h1>
+    <div class="container">
+        <h1 class="text-center mb-5">Tabella dei post </h1>
+
+        <a href="{{ route('admin.posts.create') }}" class="btn btn-primary mb-2">Aggiungi nuovo post</a>
 
         {{-- tabella --}}
         <table class="table">

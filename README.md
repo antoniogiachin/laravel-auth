@@ -43,3 +43,9 @@ Mi serve impostare delle rotte: in particolare voglio che tutto ciò che non è 
 - Route::resource nel file web.php, essendo rotte accessibili solo se admin finiscono all'interno del gruppo di admin
 - PostController -> funzione index() mi ritorna index dei post -> nuova cartella post in admin con le varie viste dei post
 - Funzione index() PostController -> preleva tutti i post dal DB e li invia compact alla index dei post
+- TODO
+
+## Gestione views Post
+- Layout base modificato-> inseriti nella nav collegamento a dashboard(admin.home) e alla tabella dei post (admin.post.index)
+- Inserita tabella in admin.post.index e pulsante per admin.post.create
+- Form per creazione in admin.post.create
