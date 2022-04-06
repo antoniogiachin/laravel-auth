@@ -29,3 +29,11 @@ Mi serve impostare delle rotte: in particolare voglio che tutto ciò che non è 
 - Faccio la import della App.vue in un file JS dedicato al front nello specifico -> dentro resources/js -> guarda il file per vedere come istanziare
 - Cancello tutto il contenuto (eccetto bootstrap) del file app.js base (lo uso solo per il backend), e nel webpack.mix.js inserisco anche il front.js
 - Nella home di Guest metto lo script per il front.js e il tag div #root, poi rilancio npm run watch/serve
+
+## Gestiamo inserimento post nel DB
+- Creiamo table posts  *php artisan make:migration create_posts_table*
+- Creiamo controller Crud per i post *php artisan make:controller --resource Admin/PostController* sotto la cartella Admin
+- Creo model per i Post *php artisan make:model Post*
+- Definisco la tabella nella migration, nei campi con **slug** intendo una stringa che va ad identificare il post nell'url relativo: ad esempio miosito.it/slug
+- PostController -> funzione index() mi ritorna una home dei post -> nuova cartella post in admin con le varie viste dei post
+- Funzione index() -> preleva tutti i pos
